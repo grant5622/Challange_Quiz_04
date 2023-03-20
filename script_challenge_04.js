@@ -1,4 +1,10 @@
 //Grant Williamson
+
+function TestsFunction() {
+    var T = document.getElementById("TestsDiv");
+    T.style.display = "block";  // <-- Set it to block
+}
+
 const quizData = [
     {
         question: "What process do we use to find errors in code?",
@@ -6,7 +12,7 @@ const quizData = [
         b: "Debug",
         c: "System Check",
         d: "Scan",
-        correct: "b",
+        answer: "b",
     },
     {
         question: "What does CSS stand for?",
@@ -14,7 +20,7 @@ const quizData = [
         b: "Cascading Style Sheets",
         c: "Cascading Simple Sheets",
         d: "Category style system",
-        correct: "b",
+        answer: "b",
     },
     {
         question: "What does HTML stand for?",
@@ -22,7 +28,7 @@ const quizData = [
         b: "How the machine Language",
         c: "Hypeexist Machine Language",
         d: "How text machine language",
-        correct: "a",
+        answer: "a",
     },
     {
         question: "What is the most common code langauge?",
@@ -30,7 +36,16 @@ const quizData = [
         b: "Python",
         c: "Javascript",
         d: "none of the above",
-        correct: "c",
+        answer: "c",
+    },
+
+    {
+        question: "What does cd do in termianl?",
+        a: "Save file",
+        b: "Move up two levels",
+        c: "Root of the drive",
+        d: "Home Directory",
+        answer: "d",
     },
 
     {
@@ -39,16 +54,7 @@ const quizData = [
         b: "Python",
         c: "Javascript",
         d: "none of the above",
-        correct: "c",
-    },
-
-    {
-        question: "What is the most common code langauge?",
-        a: "React",
-        b: "Python",
-        c: "Javascript",
-        d: "none of the above",
-        correct: "c",
+        answer: "c",
     },
 ];
 const quiz= document.getElementById('quiz')
