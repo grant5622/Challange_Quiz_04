@@ -14,28 +14,24 @@ function updateTimer() {
     const minutes = Math.floor(time/60)
     let  seconds = time % 60
 
-    seconds = seconds < 10 ? '0' +  seconds : seconds
-    count.innerHTML = '${minutes}:${seconds}'
-    time--
 }
 
 var timeEl = document.querySelector(".time");
 
-// Selects element by id
 var mainEl = document.getElementById("main");
 
 var secondsLeft = 60;
 
 function setTime() {
-  // Sets interval in variable
+  
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds left!";
 
     if(secondsLeft === 0) {
-      // Stops execution of action at set interval
+      
       clearInterval(timerInterval);
-      // Calls function to create and append image
+    
       sendMessage();
     }
 
@@ -67,7 +63,7 @@ const quizData = [
         question: "What does HTML stand for?",
         a: "Hypertext Markup Language",
         b: "How the machine Language",
-        c: "Hypeexist Machine Language",
+        c: "Hyperexist Machine Language",
         d: "How text machine language",
         answer: "a",
     },
@@ -132,11 +128,19 @@ function getSelected() {
     })
     return answer
 }
+
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
+       if(answer === quizData[currentQuiz].answer) {
            score++
+       } else {
+           time -= 10 
+           secondsLeft -= 10 
+           if (secondsLeft < 0) {
+              secondsLeft = 0; 
+           }
+           timeEl.textContent = secondsLeft + " seconds left!";
        }
        currentQuiz++
        if(currentQuiz < quizData.length) {
@@ -144,9 +148,8 @@ submitBtn.addEventListener('click', () => {
        } else {
            quiz.innerHTML = `
            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-           <button onclick="location.reload()">Reload</button>
+           <button onclick="location.reload()">Try Again</button>
            `
        }
     }
 })
-
